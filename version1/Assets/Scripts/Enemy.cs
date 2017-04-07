@@ -24,15 +24,21 @@ public class Enemy : MonoBehaviour {
                 RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero);
 
                 if (hit.collider != null)
-                {
-					if (hit.collider.GetType () == typeof(CircleCollider2D)) {
-						anim.SetTrigger ("Shoot");
-						rb2d.velocity = Vector2.zero;
+                {	
+					if (hit.collider.gameObject == this.transform.Find("enemy_range").gameObject) {
+						if (hit.collider.GetType () == typeof(CircleCollider2D)) {
+							//Debug.Log (hit.collider.gameObject);
+							anim.SetTrigger ("Shoot");
+							rb2d.velocity = Vector2.zero;
+						}
 					}
-					if (hit.collider.GetType () == typeof(PolygonCollider2D)) {
+					if (hit.collider.gameObject == this.gameObject) {
+						if (hit.collider.GetType () == typeof(PolygonCollider2D)) {
+						//Debug.Log (hit.collider.gameObject);	
 						anim.SetTrigger ("Die");
-						rb2d.velocity = Vector2.zero;
-						isDead = true;
+							rb2d.velocity = Vector2.zero;
+							isDead = true;
+						}
 					}
                 }
                 
