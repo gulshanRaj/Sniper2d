@@ -122,6 +122,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e5cbfc543d497149ac218b5d2dae7d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  min_x: -10
+  max_x: 10
+  min_y: -3.85
+  max_y: 3.85
 --- !u!81 &8008961
 AudioListener:
   m_ObjectHideFlags: 0
@@ -184,7 +188,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 8008959}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -3.8}
+  m_LocalPosition: {x: 0, y: 0, z: -6.46}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -279,7 +283,7 @@ Light:
   m_CookieSize: 10
   m_Shadows:
     m_Type: 2
-    m_Resolution: -1
+    m_Resolution: 2
     m_CustomResolution: -1
     m_Strength: 1
     m_Bias: 0.05
@@ -450,3 +454,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0f63a01c2afc364ca343ef1a6014dcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  min_x: -10
+  max_x: 10
+  min_y: -3.85
+  max_y: 3.85

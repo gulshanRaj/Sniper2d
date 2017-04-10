@@ -14,7 +14,7 @@ public class EnemyPool : MonoBehaviour {
 		enemies = new GameObject[enemyPoolSize];
 		for (int i = 0; i < enemyPoolSize; i++) {
 
-			Vector2 tempPosition = new Vector2 (i*2, i*2);
+			Vector2 tempPosition = new Vector2 (i*2, 0);
 			enemies [i] = (GameObject)Instantiate (enemyPrefab, tempPosition , Quaternion.identity);
 		}
 	}

@@ -30,14 +30,24 @@ public class Enemy : MonoBehaviour {
 							//Debug.Log (hit.collider.gameObject);
 							anim.SetTrigger ("Shoot");
 							rb2d.velocity = Vector2.zero;
+							if (isShooting == false) {
+								isShooting = true;
+								GameController.enemyShooter++;
+							}
+
 						}
 					}
 					if (hit.collider.gameObject == this.gameObject) {
 						if (hit.collider.GetType () == typeof(PolygonCollider2D)) {
 						//Debug.Log (hit.collider.gameObject);	
 						anim.SetTrigger ("Die");
+							GameController.instance.ScoreUpdate ();
 							rb2d.velocity = Vector2.zero;
 							isDead = true;
+							if (isShooting == true) {
+								isShooting = false;
+								GameController.enemyShooter--;
+							}
 						}
 					}
                 }
