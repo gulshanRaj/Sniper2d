@@ -6,11 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
 	public GameObject gameOverText;
+	public GameObject restartText;
 	public GameObject crossHair;
 	public Text scoreText;
 	public Text healthText;
 	public static int score;
-	public static int healthBar;
+	public static float healthBar;
 	public static int enemyShooter;
 	public bool gameOver = false;
 	public AudioClip shootSound;
@@ -28,7 +29,7 @@ public class GameController : MonoBehaviour {
 		} else if (instance != this) {
 			Destroy (gameObject);
 		}
-		healthBar = 1000;
+		healthBar = 100.0f;
 		score = 0;
 		enemyShooter = 0;
 		source = GetComponent<AudioSource> ();
@@ -36,15 +37,22 @@ public class GameController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (gameOver == true && Input.GetMouseButtonDown (0)) {
+			SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex);
+		}
 		if (Input.GetButtonDown ("Fire1")) {
 			float vol = Random.Range (volLowRange, volHighRange);
 			source.PlayOneShot (shootSound, vol);
 		}
 		HealthUpdate ();
+		if (Input.GetKeyDown (KeyCode.Escape)) {
+			SceneManager.LoadScene (0);
+		}
 	}
 
 	public void EnemyDied() {
 		gameOverText.SetActive (true);
+		restartText.SetActive (true);
 		gameOver = true;
 		crossHair.SetActive (false);
 	}
@@ -53,8 +61,9 @@ public class GameController : MonoBehaviour {
 		if (gameOver) {
 			return;
 		}
-		healthBar=healthBar-enemyShooter;
-		healthText.text = "Health: " + healthBar.ToString();
+		healthBar=healthBar - SceneManager.GetActiveScene().buildIndex * enemyShooter * Time.deltaTime;
+		int tempHealthBar = (int)(healthBar);
+		healthText.text = "Health: " + tempHealthBar.ToString();
 		if (healthBar <= 0) {
 			healthText.text = "Health: 0";
 			EnemyDied ();
