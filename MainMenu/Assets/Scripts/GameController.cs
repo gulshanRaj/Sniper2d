@@ -19,6 +19,7 @@ public class GameController : MonoBehaviour {
 	private float volLowRange=.5f;
 	private float volHighRange=1.0f;
 	public static GameController instance;
+	private float mouseDownTime = 0.0f;
 
 
 
@@ -34,15 +35,23 @@ public class GameController : MonoBehaviour {
 		enemyShooter = 0;
 		source = GetComponent<AudioSource> ();
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		if (gameOver == true && Input.GetMouseButtonDown (0)) {
 			SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex);
 		}
-		if (Input.GetButtonDown ("Fire1")) {
-			float vol = Random.Range (volLowRange, volHighRange);
-			source.PlayOneShot (shootSound, vol);
+
+		if (Input.GetMouseButtonDown (0)) { 
+			mouseDownTime = Time.time;
+		}
+
+		if(Input.GetMouseButtonUp(0)) {
+			if(Time.time - mouseDownTime <= 0.1f)
+			{
+				float vol = Random.Range (volLowRange, volHighRange);
+				source.PlayOneShot (shootSound, vol);
+			}
 		}
 		HealthUpdate ();
 		if (Input.GetKeyDown (KeyCode.Escape)) {
