@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 60451066745231102}
   - component: {fileID: 82256194195103092}
   m_Layer: 0
-  m_Name: Enemies
+  m_Name: EnemiesLevel1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -263,6 +263,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   min_y: -6.5
   max_y: 5
+  min_x: -31
+  max_x: 31
 --- !u!212 &212348858965102068
 SpriteRenderer:
   m_ObjectHideFlags: 1

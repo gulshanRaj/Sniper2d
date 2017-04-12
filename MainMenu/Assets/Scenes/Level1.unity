@@ -357,7 +357,7 @@ GameObject:
   - component: {fileID: 560889700}
   - component: {fileID: 560889699}
   m_Layer: 0
-  m_Name: hidden_leaf_village
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

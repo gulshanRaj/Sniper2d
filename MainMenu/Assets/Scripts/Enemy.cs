@@ -8,13 +8,13 @@ public class Enemy : MonoBehaviour {
 	private bool isShooting = false;
 	private Animator anim;
 	private bool hitObstacle = false;
-	public float min_y, max_y;
+	public float min_y, max_y,min_x,max_x;
 
 	// Use this for initialization
 	void Start () {
 		rb2d = GetComponent<Rigidbody2D> ();
 		anim = GetComponent<Animator>();
-		rb2d.velocity = new Vector2 (0.0f, -0.1f);
+		rb2d.velocity = new Vector2 (0.0f, -0.3f);
 	}
 
 	// Update is called once per frame
