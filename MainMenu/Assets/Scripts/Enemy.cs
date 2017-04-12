@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour {
 	private bool isDead = false;
 	private bool isShooting = false;
 	private Animator anim;
+	public float min_y,max_y;
 
 	// Use this for initialization
 	void Start () {
@@ -55,5 +56,10 @@ public class Enemy : MonoBehaviour {
 			}
 
 		}
+		transform.position = new Vector3 (
+			transform.position.x,
+			Mathf.Clamp (transform.position.y, min_y, max_y),
+			transform.position.z
+		);
 	}
 }

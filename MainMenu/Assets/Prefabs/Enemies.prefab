@@ -108,7 +108,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: -0.13}
   serializedVersion: 2
-  m_Radius: 1.49
+  m_Radius: 2.15
 --- !u!60 &60451066745231102
 PolygonCollider2D:
   m_ObjectHideFlags: 1
@@ -220,7 +220,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -261,6 +261,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3917c8a689adb0a4a81efd9dcb297dba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  min_y: -6.5
+  max_y: 5
 --- !u!212 &212348858965102068
 SpriteRenderer:
   m_ObjectHideFlags: 1

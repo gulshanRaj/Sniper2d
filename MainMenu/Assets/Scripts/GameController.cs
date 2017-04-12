@@ -34,7 +34,7 @@ public class GameController : MonoBehaviour {
 		} else if (instance != this) {
 			Destroy (gameObject);
 		}
-		healthBar = 100.0f;
+		healthBar = 10.0f;
 		score = 0;
 		enemyShooter = 0;
 		source = GetComponent<AudioSource> ();
