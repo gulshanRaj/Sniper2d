@@ -8,18 +8,22 @@ public class GameController : MonoBehaviour {
 	public GameObject gameOverText;
 	public GameObject restartText;
 	public GameObject crossHair;
+	public GameObject stone_wall;
 	public Text scoreText;
 	public Text healthText;
 	public static int score;
 	public static float healthBar;
 	public static int enemyShooter;
 	public bool gameOver = false;
+	public static bool isPlayerDucking = false;
 	public AudioClip shootSound;
 	private AudioSource source;
 	private float volLowRange=.5f;
 	private float volHighRange=1.0f;
 	public static GameController instance;
-	private float mouseDownTime = 0.0f;
+	public static float mouseDownTime = 0.0f;
+	private float wallDownTime = 0.0f;
+
 
 
 
@@ -42,11 +46,25 @@ public class GameController : MonoBehaviour {
 			SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex);
 		}
 
+		if (Time.time - wallDownTime > 1.0f && Input.touchCount > 1) { 
+			Debug.Log (Input.touchCount);
+				if (isPlayerDucking == false) {
+					isPlayerDucking = true;
+					stone_wall.SetActive (true);
+					crossHair.SetActive (false);
+				} else {
+					isPlayerDucking = false;
+					stone_wall.SetActive (false);
+					crossHair.SetActive (true);
+				}
+			wallDownTime = Time.time;
+		} 
+
 		if (Input.GetMouseButtonDown (0)) { 
 			mouseDownTime = Time.time;
 		}
 
-		if(Input.GetMouseButtonUp(0)) {
+		if(isPlayerDucking == false && Input.GetMouseButtonUp(0)) {
 			if(Time.time - mouseDownTime <= 0.1f)
 			{
 				float vol = Random.Range (volLowRange, volHighRange);
@@ -70,12 +88,14 @@ public class GameController : MonoBehaviour {
 		if (gameOver) {
 			return;
 		}
-		healthBar=healthBar - SceneManager.GetActiveScene().buildIndex * enemyShooter * Time.deltaTime;
-		int tempHealthBar = (int)(healthBar);
-		healthText.text = "Health: " + tempHealthBar.ToString();
-		if (healthBar <= 0) {
-			healthText.text = "Health: 0";
-			EnemyDied ();
+		if (isPlayerDucking == false) {
+			healthBar = healthBar - SceneManager.GetActiveScene ().buildIndex * enemyShooter * Time.deltaTime;
+			int tempHealthBar = (int)(healthBar);
+			healthText.text = "Health: " + tempHealthBar.ToString ();
+			if (healthBar <= 0) {
+				healthText.text = "Health: 0";
+				EnemyDied ();
+			}
 		}
 	}
 

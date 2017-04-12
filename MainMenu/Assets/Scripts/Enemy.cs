@@ -7,22 +7,20 @@ public class Enemy : MonoBehaviour {
 	private bool isDead = false;
 	private bool isShooting = false;
 	private Animator anim;
-	private float mouseDownTime = 0.0f;
+
 	// Use this for initialization
 	void Start () {
 		rb2d = GetComponent<Rigidbody2D> ();
 		anim = GetComponent<Animator>();
 		rb2d.velocity = new Vector2 (0.0f, -0.1f);
-	}
+		}
 
 	// Update is called once per frame
 	void Update () {
 		if (isDead == false)
-		{	if (Input.GetMouseButtonDown (0)) {
-				mouseDownTime = Time.time;
-			}
-
-			if(Input.GetMouseButtonUp(0) && (Time.time - mouseDownTime <= 0.1f))
+		{	
+			
+			if((GameController.isPlayerDucking == false) &&  Input.GetMouseButtonUp(0) && (Time.time - GameController.mouseDownTime <= 0.1f))
 			{
 				Vector2 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 				RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero);
