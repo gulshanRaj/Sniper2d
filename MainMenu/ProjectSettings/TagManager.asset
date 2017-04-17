@@ -47,6 +47,9 @@ TagManager:
   - name: MiddleGround
     uniqueID: 1861322175
     locked: 0
+  - name: Obstacle
+    uniqueID: 3496657659
+    locked: 0
   - name: BackGround
     uniqueID: 2380247397
     locked: 0

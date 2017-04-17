@@ -192,6 +192,7 @@ GameObject:
   - component: {fileID: 543875992}
   - component: {fileID: 543875994}
   - component: {fileID: 543875993}
+  - component: {fileID: 543875995}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -237,7 +238,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 543875989}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 59d3ba24bb4bfe3458f74d0ffd2c2380, type: 3}
   m_Name: 
@@ -332,6 +333,20 @@ AudioListener:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 543875989}
   m_Enabled: 1
+--- !u!114 &543875995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 543875989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4caa896073366964c88d97618d14a0e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPoolSize: 5
+  enemyPrefab: {fileID: 1501166483997704, guid: 4abfbcfdc3dd41b46af13c92649123d2,
+    type: 2}
 --- !u!1 &560889698
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,7 +357,7 @@ GameObject:
   - component: {fileID: 560889700}
   - component: {fileID: 560889699}
   m_Layer: 0
-  m_Name: hidden_leaf_village
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -379,7 +394,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1314316387
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4418dcfcd131e5740ae01ac16058c3e8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e09daedc46b15d942ae96567cf541124, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -391,7 +406,7 @@ Transform:
   m_GameObject: {fileID: 560889698}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.09, y: 0.17, z: 0}
-  m_LocalScale: {x: 1.7377262, y: 2.4426901, z: 1}
+  m_LocalScale: {x: -5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -525,7 +540,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1724.1, y: 813.7}
+  m_AnchoredPosition: {x: 1724.1, y: 598.95}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1063208438
@@ -631,7 +646,17 @@ Prefab:
     - target: {fileID: 58742868168984018, guid: 4abfbcfdc3dd41b46af13c92649123d2,
         type: 2}
       propertyPath: m_Radius
-      value: 2.18
+      value: 2.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 114558275313319446, guid: 4abfbcfdc3dd41b46af13c92649123d2,
+        type: 2}
+      propertyPath: min_y
+      value: -6.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114558275313319446, guid: 4abfbcfdc3dd41b46af13c92649123d2,
+        type: 2}
+      propertyPath: max_y
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4abfbcfdc3dd41b46af13c92649123d2, type: 2}
@@ -687,7 +712,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 75
+  field of view: 83
   orthographic: 0
   orthographic size: 2
   m_Depth: -1
@@ -728,10 +753,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e5cbfc543d497149ac218b5d2dae7d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  min_x: -8.5
-  max_x: 8.5
-  min_y: -3
-  max_y: 3
+  min_x: -40
+  max_x: 40
+  min_y: -6.5
+  max_y: 5
 --- !u!1 &1264643000
 GameObject:
   m_ObjectHideFlags: 0
@@ -982,7 +1007,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 737.7001, y: 420.74}
+  m_AnchoredPosition: {x: 737.7001, y: 253.6}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1896691622
@@ -1031,7 +1056,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Health: 100'
+  m_Text: 'Health: 10'
 --- !u!222 &1896691624
 CanvasRenderer:
   m_ObjectHideFlags: 0
