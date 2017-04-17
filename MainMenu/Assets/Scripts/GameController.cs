@@ -22,7 +22,7 @@ public class GameController : MonoBehaviour {
 	private float volLowRange=.5f;
 	private float volHighRange=1.0f;
 	public static GameController instance;
-	public static float mouseDownTime = 0.0f;
+	public static float mouseDownTime = 0.0f, gotUpTime = 0.0f;
 	private float wallDownTime = 0.0f;
 
 
@@ -35,9 +35,14 @@ public class GameController : MonoBehaviour {
 		} else if (instance != this) {
 			Destroy (gameObject);
 		}
+<<<<<<< HEAD
+		healthBar = 10000.0f;
+=======
 		healthBar = 10.0f;
+>>>>>>> Kedit
 		score = 0;
 		enemyShooter = 0;
+		gotUpTime = Time.time;
 		source = GetComponent<AudioSource> ();
 	}
 
@@ -56,7 +61,7 @@ public class GameController : MonoBehaviour {
 				} else {
 					isPlayerDucking = false;
 					stone_wall.SetActive (false);
-					crossHair.SetActive (true);
+				crossHair.SetActive (true); gotUpTime = Time.time;
 				}
 			wallDownTime = Time.time;
 		} 

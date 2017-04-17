@@ -48,7 +48,11 @@ TagManager:
     uniqueID: 1861322175
     locked: 0
   - name: Obstacle
+<<<<<<< HEAD
+    uniqueID: 3292600813
+=======
     uniqueID: 3496657659
+>>>>>>> Kedit
     locked: 0
   - name: BackGround
     uniqueID: 2380247397

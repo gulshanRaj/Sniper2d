@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+guid: 7e3b9b6b401ff214e88e68239319f0a5
+timeCreated: 1491997993
+=======
 guid: 43a2f2714bd92bb42ad95a520670df17
 timeCreated: 1491926173
+>>>>>>> Kedit
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName: {}
