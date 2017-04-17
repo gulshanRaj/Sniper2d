@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour {
 	void Start () {
 		rb2d = GetComponent<Rigidbody2D> ();
 		anim = GetComponent<Animator>();
-		rb2d.velocity = new Vector2 (0.0f, -0.3f);
+		rb2d.velocity = new Vector2 (0.0f, -0.2f);
 		initialVel = rb2d.velocity;
 		source = GetComponent<AudioSource> ();
 	}

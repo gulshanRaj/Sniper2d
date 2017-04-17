@@ -8,7 +8,6 @@ public class GameController : MonoBehaviour {
 	public GameObject gameOverText;
 	public GameObject restartText;
 	public GameObject levelText;
-	public GameObject winScoreText;
 	public GameObject crossHair;
 	public GameObject stone_wall;
 	public Text scoreText;
@@ -108,7 +107,6 @@ public class GameController : MonoBehaviour {
 		score++;
 		if (score == 17) {
 			levelText.SetActive (true);
-			winScoreText.SetActive (true);
 			restartText.SetActive (true);
 		}
 		scoreText.text = "Score: " + score.ToString();
