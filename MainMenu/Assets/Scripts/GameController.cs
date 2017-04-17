@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour {
 	public GameObject gameOverText;
 	public GameObject restartText;
+	public GameObject levelText;
+	public GameObject winScoreText;
 	public GameObject crossHair;
 	public GameObject stone_wall;
 	public Text scoreText;
@@ -43,7 +45,7 @@ public class GameController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		HealthUpdate ();
-		if (gameOver == true && Input.GetMouseButtonDown (0)) {
+		if ((gameOver == true || score==17) && Input.GetMouseButtonDown (0)) {
 			SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex);
 		}
 		if (Time.time - wallDownTime > 1.0f && Input.touchCount > 1) { 
@@ -68,7 +70,7 @@ public class GameController : MonoBehaviour {
 			if(Time.time - mouseDownTime <= 0.1f)
 			{
 				float vol = Random.Range (volLowRange, volHighRange);
-				source.PlayOneShot (shootSound, vol);
+				source.PlayOneShot (shootSound, vol); Debug.Log ("Bullet Sound");
 			}
 		}
 
@@ -104,6 +106,11 @@ public class GameController : MonoBehaviour {
 			return;
 		}
 		score++;
+		if (score == 17) {
+			levelText.SetActive (true);
+			winScoreText.SetActive (true);
+			restartText.SetActive (true);
+		}
 		scoreText.text = "Score: " + score.ToString();
 	}
 
