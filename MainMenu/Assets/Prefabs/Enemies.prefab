@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 114558275313319446}
   - component: {fileID: 95607066360587078}
   - component: {fileID: 60451066745231102}
-  - component: {fileID: 82256194195103092}
+  - component: {fileID: 82432751754591920}
   m_Layer: 0
   m_Name: Enemies
   m_TagString: Untagged
@@ -153,7 +153,7 @@ PolygonCollider2D:
       - {x: 0.55, y: -0.17}
     - - {x: -0.32999998, y: 0.39}
       - {x: -0.32999998, y: 0.37}
---- !u!82 &82256194195103092
+--- !u!82 &82432751754591920
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -261,6 +261,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3917c8a689adb0a4a81efd9dcb297dba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bodyHitSound: {fileID: 8300000, guid: 3a757d46fbb11e44b9ae94d92b6c1cfc, type: 3}
+  obstacleHitSound: {fileID: 8300000, guid: 7b622284eb4aea7419c5df14a8c76678, type: 3}
 --- !u!212 &212348858965102068
 SpriteRenderer:
   m_ObjectHideFlags: 1
