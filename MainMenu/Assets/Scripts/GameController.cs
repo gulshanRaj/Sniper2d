@@ -34,7 +34,11 @@ public class GameController : MonoBehaviour {
 		} else if (instance != this) {
 			Destroy (gameObject);
 		}
+<<<<<<< HEAD
 		healthBar = 10000.0f;
+=======
+		healthBar = 10.0f;
+>>>>>>> Kedit
 		score = 0;
 		enemyShooter = 0;
 		gotUpTime = Time.time;
@@ -43,10 +47,10 @@ public class GameController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		HealthUpdate ();
 		if (gameOver == true && Input.GetMouseButtonDown (0)) {
 			SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex);
 		}
-
 		if (Time.time - wallDownTime > 1.0f && Input.touchCount > 1) { 
 			Debug.Log (Input.touchCount);
 				if (isPlayerDucking == false) {
@@ -72,7 +76,7 @@ public class GameController : MonoBehaviour {
 				source.PlayOneShot (shootSound, vol);
 			}
 		}
-		HealthUpdate ();
+
 		if (Input.GetKeyDown (KeyCode.Escape)) {
 			SceneManager.LoadScene (0);
 		}
