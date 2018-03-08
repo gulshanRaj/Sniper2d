@@ -242,7 +242,7 @@ Animator:
   m_GameObject: {fileID: 1501166483997704}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: acbdac8e924d8754ca58bf28eec685ca, type: 2}
+  m_Controller: {fileID: 9100000, guid: 621245ca7e4b5d049af516647a07a258, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -261,9 +261,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3917c8a689adb0a4a81efd9dcb297dba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bodyHitSound: {fileID: 8300000, guid: fdf4fad48eeab0a4bab788a39ded41cc, type: 3}
-  obstacleHitSound: {fileID: 8300000, guid: 06dd6a6b9de4cbd4eb82b021166bec53, type: 3}
-  machinegun: {fileID: 8300000, guid: adcf00ab7eefe4346b87cb507fd98136, type: 3}
   min_y: -20
   max_y: -10
   min_x: -70

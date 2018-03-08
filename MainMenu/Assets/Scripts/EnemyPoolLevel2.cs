@@ -14,19 +14,19 @@ public class EnemyPoolLevel2 : MonoBehaviour {
 		int i = 0;
 		for (; i < enemyPoolSize; i++) {
 			int x=(int)(Random.Range( -12.0f, 25.0f));
-			int y=(int)(Random.Range(-14f,-10f));
+			int y=(int)(Random.Range(-20f,-10f));
 			Vector2 tempPosition = new Vector2 (x, y);
 			enemies [i] = (GameObject)Instantiate (enemyPrefab, tempPosition , Quaternion.identity);
 		}
 		for (; i <2*enemyPoolSize; i++) {
-			int x=(int)(Random.Range(40.0f,60.0f ));
-			int y=(int)(Random.Range(-22f,-14f));
+			int x=(int)(Random.Range(14.0f,31.0f ));
+			int y=(int)(Random.Range(-2.6f,-5.5f));
 			Vector2 tempPosition = new Vector2 (x, y);
 			enemies [i] = (GameObject)Instantiate (enemyPrefab, tempPosition , Quaternion.identity);
 		}
 		for (; i <3*enemyPoolSize; i++) {
-			int x=(int)(Random.Range(-55.0f,-25.0f ));
-			int y=(int)(Random.Range(-23f,-12f));
+			int x=(int)(Random.Range(-31.0f,-14.0f ));
+			int y=(int)(Random.Range(-2.6f,-5.5f));
 			Vector2 tempPosition = new Vector2 (x, y);
 			enemies [i] = (GameObject)Instantiate (enemyPrefab, tempPosition , Quaternion.identity);
 		}

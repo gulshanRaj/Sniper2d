@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour {
 	public GameObject gameOverText;
 	public GameObject restartText;
-	public GameObject levelText;
 	public GameObject crossHair;
 	public GameObject stone_wall;
 	public Text scoreText;
@@ -22,7 +21,7 @@ public class GameController : MonoBehaviour {
 	private float volLowRange=.5f;
 	private float volHighRange=1.0f;
 	public static GameController instance;
-	public static float mouseDownTime = 0.0f, gotUpTime = 0.0f;
+	public static float mouseDownTime = 0.0f;
 	private float wallDownTime = 0.0f;
 
 
@@ -35,21 +34,16 @@ public class GameController : MonoBehaviour {
 		} else if (instance != this) {
 			Destroy (gameObject);
 		}
-<<<<<<< HEAD
-		healthBar = 10000.0f;
-=======
 		healthBar = 10.0f;
->>>>>>> Kedit
 		score = 0;
 		enemyShooter = 0;
-		gotUpTime = Time.time;
 		source = GetComponent<AudioSource> ();
 	}
 
 	// Update is called once per frame
 	void Update () {
 		HealthUpdate ();
-		if ((gameOver == true || score==17) && Input.GetMouseButtonDown (0)) {
+		if (gameOver == true && Input.GetMouseButtonDown (0)) {
 			SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex);
 		}
 		if (Time.time - wallDownTime > 1.0f && Input.touchCount > 1) { 
@@ -61,7 +55,7 @@ public class GameController : MonoBehaviour {
 				} else {
 					isPlayerDucking = false;
 					stone_wall.SetActive (false);
-				crossHair.SetActive (true); gotUpTime = Time.time;
+					crossHair.SetActive (true);
 				}
 			wallDownTime = Time.time;
 		} 
@@ -74,7 +68,7 @@ public class GameController : MonoBehaviour {
 			if(Time.time - mouseDownTime <= 0.1f)
 			{
 				float vol = Random.Range (volLowRange, volHighRange);
-				source.PlayOneShot (shootSound, vol); Debug.Log ("Bullet Sound");
+				source.PlayOneShot (shootSound, vol);
 			}
 		}
 
@@ -110,10 +104,6 @@ public class GameController : MonoBehaviour {
 			return;
 		}
 		score++;
-		if (score == 17) {
-			levelText.SetActive (true);
-			restartText.SetActive (true);
-		}
 		scoreText.text = "Score: " + score.ToString();
 	}
 
